@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { connect } from 'react-redux'
 import { StyleSheet, View, Text, ScrollView, TextInput, Button, Alert } from 'react-native'
+import { MarkdownView } from 'react-native-markdown-view'
 import {deleteNote, getNotes, postNote, putNote} from '../redux/actions'
 
 function Notes({getNotes, putNote, deleteNote, postNote, notes}) {
@@ -67,13 +68,15 @@ function Notes({getNotes, putNote, deleteNote, postNote, notes}) {
       {notes.map((el, i) => 
         <View key={i}>
           {el.note ? (
-            <Text style={styles.noteBox} onPress={() => handleShow(el._id)}>{el.note.split('').splice(0,20)}</Text>
+            <Text onPress={() => handleShow(el._id)} style={styles.noteBox}>
+              <MarkdownView >{el.note.split('').splice(0,20)}</MarkdownView>
+            </Text>
           ) : null}
           {showContent[el._id] ? 
           <View style={styles.noteContent}>
             <View style={styles.readBox}>
-              <Text style={styles.title}>{el.note.split('').splice(0,20)}</Text>
-              <Text>{el.note}</Text>
+              <MarkdownView>#{el.note.split('').splice(0,20).join('')}</MarkdownView>
+              <MarkdownView>{el.note}</MarkdownView>
             </View>
             <View style={styles.writeBox}>
               <TextInput
@@ -98,7 +101,7 @@ function Notes({getNotes, putNote, deleteNote, postNote, notes}) {
           </View > : null}
         </View>  
       )}
-      <View>
+      <View style={{marginBottom: 50}}>
         <Button onPress={handleCreate} color='limegreen' title='Create note'/>
         <TextInput 
         style={showCreate ? {borderWidth: 1, borderStyle: 'solid', borderColor:'black'}: {display:'none'}}
@@ -138,18 +141,13 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: 'black',
     borderRadius: 5,
-    padding: 5,
+    paddingLeft: 5,
+    paddingRight: 5,
     margin: 5
   },
   noteContent: {
     padding: 5,
     margin: 5,
-    marginBottom: 20
-  },
-  title: {
-    fontWeight: 'bold',
-    fontSize: 24,
-    marginBottom: 15
   },
   readBox: {
     padding: 5

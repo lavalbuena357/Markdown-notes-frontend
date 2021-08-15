@@ -9,7 +9,7 @@ export function getNotes() {
   return (
     async function(dispatch) {
       try {
-        const notes = await axios.get('http://192.168.42.149:3001/notes')
+        const notes = await axios.get('http://192.168.0.4:3001/notes')
         dispatch({
           type: GET_NOTES,
           payload: notes.data
@@ -22,7 +22,7 @@ export function getNotes() {
 export function searchNotes(note) {
   return async function(dispatch) {
       try {
-        const notes = await axios.get(`http://192.168.42.149:3001/notes?note=${note}`)
+        const notes = await axios.get(`http://192.168.0.4:3001/notes?note=${note}`)
         dispatch({
           type: SEARCH_NOTES,
           payload: notes.data
@@ -35,7 +35,7 @@ export function searchNotes(note) {
 export function putNote(id, payload) {
   return async function(dispacth) {
       try {
-        await axios.put(`http://192.168.42.149:3001/notes/${id}`, payload)
+        await axios.put(`http://192.168.0.4:3001/notes/${id}`, payload)
         dispacth({
           type: PUT_NOTE,
           payload: payload
@@ -47,7 +47,7 @@ export function putNote(id, payload) {
 export function postNote(payload) {
   return async function(dispacth) {
       try {
-        await axios.post('http://192.168.42.149:3001/notes', payload)
+        await axios.post('http://192.168.0.4:3001/notes', payload)
         dispacth({
           type: POST_NOTE,
           payload: payload
@@ -59,7 +59,7 @@ export function postNote(payload) {
 export function deleteNote(id) {
   return async function(dispacth) {
       try {
-        await axios.delete(`http://192.168.42.149:3001/notes/${id}`)
+        await axios.delete(`http://192.168.0.4:3001/notes/${id}`)
         dispacth({
           type: DELETE_NOTE
         })
