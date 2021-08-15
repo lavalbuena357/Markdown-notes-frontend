@@ -21,7 +21,7 @@ function Home() {
           <Text style={{fontSize: 10}}>Markdown Notes</Text>
         </View>
         <Image style={styles.userImage} source={{ uri: user?.photoURL }}/>
-        <Button title="Salir" onPress={() => signOutUser()}/>
+        <Button title="Logout" onPress={() => signOutUser()}/>
       </View>
       <View>
         <SearchBar />

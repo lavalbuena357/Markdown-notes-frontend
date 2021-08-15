@@ -6,10 +6,12 @@ export const POST_NOTE = 'POST_NOTE'
 export const PUT_NOTE = 'PUT_NOTE'
 export const DELETE_NOTE = 'DELETE_NOTE'
 
+import config from '../config'
+
 export function getNotes() {
   return async function(dispatch) {
     try {
-      const notes = await axios.get('http://192.168.0.4:3001/notes')
+      const notes = await axios.get(config.base_url)
       dispatch({
         type: GET_NOTES,
         payload: notes.data
@@ -21,7 +23,7 @@ export function getNotes() {
 export function getNoteId(id) {
   return async function(dispacth) {
     try {
-      const note = await axios.get(`http://192.168.0.4:3001/notes/${id}`)
+      const note = await axios.get(`${config.base_url}/${id}`)
       dispacth({
         type: GET_NOTE_ID,
         payload: note.data
@@ -33,7 +35,7 @@ export function getNoteId(id) {
 export function searchNotes(note) {
   return async function(dispatch) {
     try {
-      const notes = await axios.get(`http://192.168.0.4:3001/notes?note=${note}`)
+      const notes = await axios.get(`${config.base_url}?note=${note}`)
       dispatch({
         type: SEARCH_NOTES,
         payload: notes.data
@@ -45,7 +47,7 @@ export function searchNotes(note) {
 export function putNote(id, payload) {
   return async function(dispacth) {
     try {
-      await axios.put(`http://192.168.0.4:3001/notes/${id}`, payload)
+      await axios.put(`${config.base_url}/${id}`, payload)
       dispacth({
         type: PUT_NOTE,
         payload: payload
@@ -57,7 +59,7 @@ export function putNote(id, payload) {
 export function postNote(payload) {
   return async function(dispacth) {
     try {
-      await axios.post('http://192.168.0.4:3001/notes', payload)
+      await axios.post(config.base_url, payload)
       dispacth({
         type: POST_NOTE,
         payload: payload
@@ -69,7 +71,7 @@ export function postNote(payload) {
 export function deleteNote(id) {
   return async function(dispacth) {
     try {
-      await axios.delete(`http://192.168.0.4:3001/notes/${id}`)
+      await axios.delete(`${config.base_url}/${id}`)
       dispacth({
         type: DELETE_NOTE
       })

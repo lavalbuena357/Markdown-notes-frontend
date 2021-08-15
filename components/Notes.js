@@ -111,7 +111,7 @@ function Notes({getNotes, getNoteId, putNote, deleteNote, postNote, notes, note}
       <View style={{marginBottom: 50, marginTop:20}}>
         <Button onPress={handleCreate} color='limegreen' title='Create note'/>
         <TextInput 
-          style={showCreate ? {borderWidth: 1, borderStyle: 'solid', borderColor:'black'}: {display:'none'}}
+          style={showCreate ? {padding: 10, borderWidth: 1, borderStyle: 'solid', borderColor:'black', borderRadius: 10}: {display:'none'}}
           value={create}
           numberOfLines={5}
           multiline

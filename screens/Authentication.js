@@ -6,8 +6,12 @@ function Authentication({onGoogleButtonPress}) {
   return (
     <View style={styles.container}>
       <Image source={require('../assets/logo.png')} />
-      <Text style={styles.title}>iniciar sesión con Google</Text>
-      <GoogleSigninButton onPress={onGoogleButtonPress} />
+      <Text style={styles.title}>Markdown Notes</Text>
+      <GoogleSigninButton 
+        style={{ width: 192, height: 48 }}
+        size={GoogleSigninButton.Size.Wide}
+        color={GoogleSigninButton.Color.Dark}
+        onPress={onGoogleButtonPress} />
     </View>
   );
 }
@@ -15,11 +19,12 @@ function Authentication({onGoogleButtonPress}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     alignItems: 'center',
+    backgroundColor: 'silver'
   },
   title: {
-    fontSize: 20,
+    fontSize: 24,
     marginBottom: 30,
   },
 });
