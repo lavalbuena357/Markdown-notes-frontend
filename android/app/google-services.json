@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "556623505841",
+    "project_id": "markdownnotesapp",
+    "storage_bucket": "markdownnotesapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:556623505841:android:ce309cb916ea02be4bb590",
+        "android_client_info": {
+          "package_name": "com.markdownnotes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "556623505841-jfrdubdr1tdo3b3knt251usbprltk7hj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.markdownnotes",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "556623505841-qbvqnpvjipa5ahjvdkfccjts6e642liq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWUR41ZsgvHq8_Y6ZrIZi1VBBWot2fKMQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "556623505841-qbvqnpvjipa5ahjvdkfccjts6e642liq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
