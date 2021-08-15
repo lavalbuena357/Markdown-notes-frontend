@@ -1,7 +1,8 @@
-import { GET_NOTES, SEARCH_NOTES, PUT_NOTE } from "./actions";
+import { GET_NOTES, GET_NOTE_ID, SEARCH_NOTES, PUT_NOTE } from "./actions";
 
 const initialState = {
-  notes: []
+  notes: [],
+  note: null
 }
 
 function reducer(state = initialState, action) {
@@ -9,6 +10,10 @@ function reducer(state = initialState, action) {
     case GET_NOTES:
       return {...state,
         notes: action.payload
+      }
+    case GET_NOTE_ID:
+      return {...state,
+        note: action.payload
       }
       case SEARCH_NOTES:
         return {...state,
